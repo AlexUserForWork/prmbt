@@ -1,115 +1,284 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Bet</title>
-    <style>
-        body {
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Prime Bet</title>
+      <style>
+         body {
             margin: 0;
             padding: 0;
             background: #0b1210;
-        }
-        
-        .header {
+            font-family: Arial, sans-serif;
+            color: #2ef44f;
+         }
+
+         .header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 80px;
             z-index: 100;
-        }
-        
-        .header img {
+         }
+
+         .header img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-        
-        .content {
+         }
+
+         .content {
             margin-top: 80px;
-        }
-        
-        .sidebar {
+         }
+
+         .sidebar {
             position: fixed;
             left: 0;
             top: 80px;
             width: 250px;
             height: calc(100vh - 80px);
-        }
-        
-        .sidebar img {
+         }
+
+         .sidebar img {
             width: 100%;
             height: 100%;
             display: block;
-        }
-        
-        .main-content {
+         }
+
+         .main-content {
             margin-left: 250px;
-        }
-        
-        .desktop-images img {
+         }
+
+         .desktop-images img {
             width: 100%;
             display: block;
-        }
+         }
 
-        .mobile-images {
+         .mobile-images {
             display: none;
-        }
+         }
 
-        .mobile-images img {
+         .mobile-images img {
             width: 100%;
             display: block;
-        }
+         }
 
-        @media (max-width: 768px) {
-            .header, .sidebar {
-                display: none;
+         .center-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            max-width: 800px;
+            width: 90%;
+         }
+
+         h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-shadow: -1px -1px 0 #0b1210, 1px -1px 0 #0b1210,
+               -1px 1px 0 #0b1210, 1px 1px 0 #0b1210;
+         }
+
+         p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-shadow: -1px -1px 0 #0b1210, 1px -1px 0 #0b1210,
+               -1px 1px 0 #0b1210, 1px 1px 0 #0b1210;
+         }
+
+         .contract {
+            margin: 30px 0;
+            cursor: pointer;
+         }
+
+         .contract-label {
+            display: block;
+            margin-bottom: 10px;
+         }
+
+         .contract-address {
+            background: rgba(46, 244, 79, 0.1);
+            padding: 10px;
+            border: 1px solid #2ef44f;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            user-select: all;
+         }
+
+         .contract-address:hover {
+            background: rgba(46, 244, 79, 0.2);
+         }
+
+         .copy-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #2ef44f;
+            color: #0b1210;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            z-index: 1000;
+            text-shadow: none;
+         }
+
+         .show-message {
+            display: block;
+            animation: fadeInOut 2s ease-in-out forwards;
+         }
+
+         @keyframes fadeInOut {
+            0% {
+               opacity: 0;
             }
-            
+            20% {
+               opacity: 1;
+            }
+            80% {
+               opacity: 1;
+            }
+            100% {
+               opacity: 0;
+            }
+         }
+
+         .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+         }
+
+         .social-icons img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.2s;
+         }
+
+         .social-icons img:hover {
+            transform: scale(1.1);
+         }
+
+         @media (max-width: 768px) {
+            .header,
+            .sidebar {
+               display: none;
+            }
+
             .content {
-                margin-top: 0;
+               margin-top: 0;
             }
-            
+
             .main-content {
-                margin-left: 0;
+               margin-left: 0;
             }
 
             .desktop-images {
-                display: none;
+               display: none;
             }
 
             .mobile-images {
-                display: block;
-                width: 100%;
-                max-width: 428px;
-                margin: 0 auto;
+               display: block;
+               width: 100%;
+               max-width: 428px;
+               margin: 0 auto;
             }
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <img src="s1.png" alt="Header">
-    </div>
-    
-    <div class="content">
-        <div class="sidebar">
-            <img src="s2.png" alt="Sidebar">
-        </div>
-        <div class="main-content">
+         }
+      </style>
+   </head>
+   <body>
+      <div class="header">
+         <img src="s1.png" alt="Header" />
+      </div>
+
+      <div class="content">
+         <div class="sidebar">
+            <img src="s2.png" alt="Sidebar" />
+         </div>
+         <div class="main-content">
             <div class="desktop-images">
-                <img src="desc_1.png" alt="Description 1">
-                <img src="web5.gif" alt="Web animation">
-                <img src="desc_2.png" alt="Description 2">
+               <img src="desc_1.png" alt="Description 1" />
+               <img src="web5.gif" alt="Web animation" />
+               <img src="desc_2.png" alt="Description 2" />
             </div>
             <div class="mobile-images">
-                <img src="mob_1.png" alt="Mobile Description 1">
-                <img src="webM.gif" alt="Mobile Web animation">
-                <img src="mob_2.png" alt="Mobile Description 2">
+               <img src="mob_1.png" alt="Mobile Description 1" />
+               <img src="webM.gif" alt="Mobile Web animation" />
+               <img src="mob_2.png" alt="Mobile Description 2" />
             </div>
-        </div>
-    </div>
-</body>
-</html> 
+         </div>
+      </div>
+
+      <div class="center-content">
+         <h1>Welcome to the PrimeBet.World website</h1>
+
+         <p>
+            This is a world of entertainment that will soon open its doors, the
+            official launch taking place on February 28th.
+         </p>
+
+         <p>
+            Our platform also has an official token, PrimeBet, which will
+            provide you with large bonuses, access to an enhanced referral
+            system, and much more.
+         </p>
+
+         <div class="contract">
+            <span class="contract-label">Contract address:</span>
+            <div class="contract-address" id="contractAddress">
+               0x0000000000000000000000000000000000000000
+            </div>
+         </div>
+
+         <div class="social-icons">
+            <a href="https://twitter.com/PrimeBetWorld" target="_blank">
+               <img src="4.png" alt="Twitter" />
+            </a>
+            <a href="https://t.me/PrimeBetWorld" target="_blank">
+               <img src="2.png" alt="Telegram" />
+            </a>
+            <a href="https://dexscreener.com/PrimeBetWorld" target="_blank">
+               <img src="3.png" alt="Dexscreener" />
+            </a>
+            <a href="https://dextools.io/PrimeBetWorld" target="_blank">
+               <img src="1.png" alt="Dextools" />
+            </a>
+         </div>
+      </div>
+
+      <div class="copy-message" id="copyMessage">Contract address copied!</div>
+
+      <script>
+         const contractAddress = document.getElementById('contractAddress');
+         const copyMessage = document.getElementById('copyMessage');
+
+         contractAddress.addEventListener('click', function () {
+            // Создаем временный элемент input
+            const tempInput = document.createElement('input');
+            tempInput.value = this.textContent;
+            document.body.appendChild(tempInput);
+
+            // Выделяем и копируем текст
+            tempInput.select();
+            document.execCommand('copy');
+
+            // Удаляем временный элемент
+            document.body.removeChild(tempInput);
+
+            // Показываем сообщение
+            copyMessage.classList.add('show-message');
+            setTimeout(() => {
+               copyMessage.classList.remove('show-message');
+            }, 2000);
+         });
+      </script>
+   </body>
+</html>
