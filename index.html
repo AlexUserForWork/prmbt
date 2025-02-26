@@ -18,27 +18,35 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 60px;
             z-index: 100;
+            background: #000000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
          }
 
          .header img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 50px;
+            width: auto;
             display: block;
          }
 
+         .header .right-icon {
+            margin-right: 100px;
+         }
+
          .content {
-            margin-top: 80px;
+            margin-top: 60px;
          }
 
          .sidebar {
             position: fixed;
             left: 0;
-            top: 80px;
+            top: 60px;
             width: 250px;
-            height: calc(100vh - 80px);
+            height: calc(100vh - 60px);
          }
 
          .sidebar img {
@@ -110,6 +118,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
             user-select: all;
+            word-break: break-all;
          }
 
          .contract-address:hover {
@@ -193,6 +202,16 @@
                max-width: 428px;
                margin: 0 auto;
             }
+
+            .center-content {
+               width: 85%;
+               padding: 0 10px;
+            }
+
+            .contract-address {
+               font-size: 14px;
+               padding: 8px;
+            }
          }
 
          body,
@@ -207,7 +226,8 @@
    </head>
    <body>
       <div class="header">
-         <img src="s1.png" alt="Header" />
+         <img src="f1 (2).png" alt="Left icon" />
+         <img src="f2 (2).png" alt="Right icon" class="right-icon" />
       </div>
 
       <div class="content">
@@ -245,21 +265,21 @@
          <div class="contract">
             <span class="contract-label">Contract address:</span>
             <div class="contract-address" id="contractAddress">
-               0x0000000000000000000000000000000000000000
+                1wYTncUYSarVFpHRZ9tpFdLrxVwgVV778QwnPdvdvJd
             </div>
          </div>
 
          <div class="social-icons">
-            <a href="https://twitter.com/PrimeBetWorld" target="_blank">
+            <a href="https://x.com/PrimeBetWorld" target="_blank">
                <img src="4.png" alt="Twitter" />
             </a>
             <a href="https://t.me/PrimeBetWorld" target="_blank">
                <img src="2.png" alt="Telegram" />
             </a>
-            <a href="https://dexscreener.com/PrimeBetWorld" target="_blank">
+            <a href="http://dexscreener.com/solana/1wYTncUYSarVFpHRZ9tpFdLrxVwgVV778QwnPdvdvJd" target="_blank">
                <img src="3.png" alt="Dexscreener" />
             </a>
-            <a href="https://dextools.io/PrimeBetWorld" target="_blank">
+            <a href="http://dextools.io/app/en/solana/pair-explorer/1wYTncUYSarVFpHRZ9tpFdLrxVwgVV778QwnPdvdvJd" target="_blank">
                <img src="1.png" alt="Dextools" />
             </a>
          </div>
@@ -272,19 +292,15 @@
          const copyMessage = document.getElementById('copyMessage');
 
          contractAddress.addEventListener('click', function () {
-            // Создаем временный элемент input
             const tempInput = document.createElement('input');
             tempInput.value = this.textContent;
             document.body.appendChild(tempInput);
 
-            // Выделяем и копируем текст
             tempInput.select();
             document.execCommand('copy');
 
-            // Удаляем временный элемент
             document.body.removeChild(tempInput);
 
-            // Показываем сообщение
             copyMessage.classList.add('show-message');
             setTimeout(() => {
                copyMessage.classList.remove('show-message');
