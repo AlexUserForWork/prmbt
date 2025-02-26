@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Игровой портал</title>
+    <title>Prime Bet</title>
     <style>
         body {
             margin: 0;
@@ -54,6 +54,15 @@
             display: block;
         }
 
+        .mobile-images {
+            display: none;
+        }
+
+        .mobile-images img {
+            width: 100%;
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .header, .sidebar {
                 display: none;
@@ -71,16 +80,12 @@
                 display: none;
             }
 
-            .mobile-image {
+            .mobile-images {
+                display: block;
                 width: 100%;
                 max-width: 428px;
                 margin: 0 auto;
-                display: block;
             }
-        }
-
-        .mobile-image {
-            display: none;
         }
     </style>
 </head>
@@ -99,7 +104,11 @@
                 <img src="web5.gif" alt="Web animation">
                 <img src="desc_2.png" alt="Description 2">
             </div>
-            <img class="mobile-image" src="Page_mobile.jpg" alt="Mobile content">
+            <div class="mobile-images">
+                <img src="mob_1.png" alt="Mobile Description 1">
+                <img src="webM.gif" alt="Mobile Web animation">
+                <img src="mob_2.png" alt="Mobile Description 2">
+            </div>
         </div>
     </div>
 </body>
